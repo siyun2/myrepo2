@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/0628css_01.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <img class="imgd" id="hide" width="100%" src="/img/암떨스티.gif">
+    <header id="header">
+        <!-- 헤더값 -->
+        <!-- position : fix값 유지 -->
+        <!-- 로고 / Log in / Sign in 기능 구현-->
+        <h1><img id = "logonight" src="/img/로고(저녁).gif" alt=""></h1>
+        <h1><img id = "logoday" src="/img/로고(낮).gif" alt=""></h1>
+            <div id="trans">
+                <div class="slider-container">
+                    <label class="switch">
+                        <input id="dark-mode-changer" type="checkbox">
+                        <span class="slider"></span>
+                        <span class="day-text" onclick="daytrans()">🔅</span>
+                        <span class="night-text" onclick="nighttrans()">🌃</span>
+                    </label>
+                </div>
+
+            <div class="container light"></div>
+        </div>
+        <button id="log_in" class="add_login">LOG IN</button>
+        <button id="sign_in">SIGN IN</button>
+    </header>
+
+    <!-- hash tag -->
+    <div class="day_hash_tag">
+        <button id="button_margin_left_01"  onclick="scrollToElement('#add_feed_01')">#낮술</button>
+        <button onclick="scrollToElement('#add_feed_05')">#기안84</button>
+        <button onclick="scrollToElement('#add_feed_08')">#치팅데이</button>
+        <button onclick="scrollToElement('#add_feed_01')">#끝판왕</button>
+        <button onclick="scrollToElement('#add_feed_08')">#추천</button>
+    </div>
+    <div class="night_hash_tag">
+        <button id="button_margin_left_02" onclick="scrollToElement('#add_feed_02')">#밤술</button>
+        <button onclick="scrollToElement('#add_feed_03')">#혼술집추천</button>
+        <button onclick="scrollToElement('#add_feed_05')">#안주추천</button>
+        <button onclick="scrollToElement('#add_feed_07')">#페어링</button>
+        <button onclick="scrollToElement('#add_feed_03')">#치맥</button>
+    </div>
+
+
+    <div id="container" class="bg">
+        <div class="floor">
+            <div class="room room_left">
+                <div class="room_top">
+                    <img id="add_feed_01" class="top_img" src="/img/낮술.jpg">
+                </div>
+                <div class="room_mid">
+                    <span style="color: rgb(38, 179, 255) ; margin-left: 10px;">#JS캠핑장 #혼자 #캠핑 #낮술 #끝판왕 </span>
+                     <div>
+                    <button onclick="plus_01()" style="border: none; background: transparent;">🍺</button>
+                    <span id="number_01">0</span>
+                    <button style="border: none; background: transparent;">💬</button>
+                    <span style="margin-right: 15px;" id="number_02">0</span>
+                     </div>
+                </div>
+                <div class="room_bottom">
+                    <h3 class="room_title" id="room_title_01" style="margin-left: 10px;"></h3>
+                    <p class="room_text" id="room_text_01" style="margin-left: 10px;"></p>
+                </div>
+            </div>
+            <div class="room room_right">
+                <div class="room_top">
+                    <img id="add_feed_02" class="top_img" src="/img/한강 혼자 맥주 산책.jpeg">
+                </div>
+                <div class="room_mid">
+                    <span style="color: rgb(38, 179, 255) ; margin-left: 10px;">#한강 #밤술 #맥주 #밤 #공기</span>
+                     <div>
+                    <button onclick="plus2_01()" style="border: none; background: transparent;">🍺</button>
+                    <span id="number2_01">0</span>
+                    <button style="border: none; background: transparent;">💬</button>
+                    <span style="margin-right: 15px;" id="number2_02">0</span>
+                     </div>
+                </div>
+                <div class="room_bottom">
+                    <h3 class="room_title" id="room_title_02" style="margin-left: 10px;"></h3>
+                    <p class="room_text" id="room_text_02" style="margin-left: 10px;"></p>
+                </div>
+            </div>            
+        </div>
+
+        <div class="floor">
+            <div class="room room_left">
+                <div class="room_top">
+                    <img id="add_feed_03" class="top_img" src="/img/치맥 보단 치소.jpg">
+                </div>
+                <div class="room_mid">
+                    <span style="color: rgb(38, 179, 255) ; margin-left: 10px;">#치맥 #보단 #치소 #퇴근</span>
+                     <div>
+                    <button onclick="plus3_01()" style="border: none; background: transparent;">🍺</button>
+                    <span id="number3_01">0</span>
+                    <button style="border: none; background: transparent;">💬</button>
+                    <span style="margin-right: 15px;" id="number3_02">0</span>
+                     </div>
+                </div>
+                <div class="room_bottom">
+                    <h3 class="room_title" id="room_title_03" style="margin-left: 10px;"></h3>
+                    <p class="room_text" id="room_text_03" style="margin-left: 10px;"></p>
+                </div>
+            </div>
+            <div class="room room_right">
+                <div class="room_top">
+                    <img id="add_feed_04" class="top_img" src="/img/보타니스트 진.jpg">
+                </div>
+                <div class="room_mid">
+                    <span style="color: rgb(38, 179, 255) ; margin-left: 10px;">#보타니스트 진 #공유 #추천 #혼술집추천</span>
+                     <div>
+                    <button onclick="plus4_01()" style="border: none; background: transparent;">🍺</button>
+                    <span id="number4_01">0</span>
+                    <button style="border: none; background: transparent;">💬</button>
+                    <span style="margin-right: 15px;" id="number4_02">0</span>
+                     </div>
+                </div>
+                <div class="room_bottom">
+                    <h3 class="room_title" id="room_title_04" style="margin-left: 10px;"></h3>
+                    <p class="room_text" id="room_text_04" style="margin-left: 10px;"></p>
+                </div>
+            </div>            
+        </div>
+
+        <div class="floor">
+            <div class="room room_left">
+                <div class="room_top">
+                    <img id="add_feed_05" class="top_img" src="/img/기안 8484.jpg">
+                </div>
+                <div class="room_mid">
+                    <span style="color: rgb(38, 179, 255) ; margin-left: 10px;">#혼술 #대가 #도시락 #기안84 #먹어봐 </span>
+                     <div>
+                    <button onclick="plus5_01()" style="border: none; background: transparent;">🍺</button>
+                    <span id="number5_01">0</span>
+                    <button style="border: none; background: transparent;">💬</button>
+                    <span style="margin-right: 15px;" id="number5_02">0</span>
+                     </div>
+                </div>
+                <div class="room_bottom">
+                    <h3 class="room_title" id="room_title_05" style="margin-left: 10px;"></h3>
+                    <p class="room_text" id="room_text_05" style="margin-left: 10px;"></p>
+                </div>
+            </div>
+            <div class="room room_right">
+                <div class="room_top">
+                    <img id="add_feed_06" class="top_img" src="/img/소주 안주 추천 회.jpeg">
+                </div>
+                <div class="room_mid">
+                    <span style="color: rgb(38, 179, 255) ; margin-left: 10px;">#회 #소주 #안주추천 #반박 #불가</span>
+                     <div>
+                    <button onclick="plus6_01()" style="border: none; background: transparent;">🍺</button>
+                    <span id="number6_01">0</span>
+                    <button style="border: none; background: transparent;">💬</button>
+                    <span style="margin-right: 15px;" id="number6_02">0</span>
+                     </div>
+                </div>
+                <div class="room_bottom">
+                    <h3 class="room_title" id="room_title_06" style="margin-left: 10px;"></h3>
+                    <p class="room_text" id="room_text_06" style="margin-left: 10px;"></p>
+                </div>
+            </div>            
+        </div>
+
+        <div class="floor">
+            <div class="room room_left">
+                <div class="room_top">
+                    <img id="add_feed_07" class="top_img" src="/img/내 최애 술 아그와 밤.jfif">
+                </div>
+                <div class="room_mid">
+                    <span style="color: rgb(38, 179, 255) ; margin-left: 10px;">#아그와 #술 #추천 #꿀맛</span>
+                     <div>
+                    <button onclick="plus7_01()" style="border: none; background: transparent;">🍺</button>
+                    <span id="number7_01">0</span>
+                    <button style="border: none; background: transparent;">💬</button>
+                    <span style="margin-right: 15px;" id="number7_02">0</span>
+                     </div>
+                </div>
+                <div class="room_bottom">
+                    <h3 class="room_title" id="room_title_07" style="margin-left: 10px;"></h3>
+                    <p class="room_text" id="room_text_07" style="margin-left: 10px;"></p>
+                </div>
+            </div>
+            <div class="room room_right">
+                <div class="room_top">
+                    <img id="add_feed_08" class="top_img" src="/img/화인 한잔.jpeg">
+                </div>
+                <div class="room_mid">
+                    <span style="color: rgb(38, 179, 255) ; margin-left: 10px;">#와인족 #최애 #안주 #치팅데이 #페어링</span>
+                     <div>
+                    <button onclick="plus8_01()" style="border: none; background: transparent;">🍺</button>
+                    <span id="number8_01">0</span>
+                    <button style="border: none; background: transparent;">💬</button>
+                    <span style="margin-right: 15px;" id="number8_02">0</span>
+                     </div>
+                </div>
+                <div class="room_bottom">
+                    <h3 class="room_title" id="room_title_08" style="margin-left: 10px;"></h3>
+                    <p class="room_text" id="room_text_08" style="margin-left: 10px;"></p>
+                </div>
+            </div>            
+        </div>
+    </div>
+
+    <div class="modal_overlay">
+        <div class="modal_window">    
+        </div>    
+    </div>
+
+    <!-- 모달 내부 구현 -->
+    <!-- 모달 1 -->
+    <div id="modal_add_feed_01" class="modal_overlay">
+        <div class="modal_window">
+            <div class="modal_title">
+                <div class="modal_title_side"></div>
+                <div> 새 게시물 </div>
+                <div class="modal_title_side">
+                    <span id="close_modal_01" class="material-icons-outlined">
+                    x
+                    </span>
+                </div>
+            </div>
+            <div class="modal_body">
+                <div class="modal_body_img_div">
+                    <img class="modal_body_img" src="/img/낮술.jpg">
+                </div>
+                <div class="modal_body_title_div">
+                    <p class="title" id="title_01">나에게 주는 선물</p>
+                </div>
+                <div class="modal_body_text_div">
+                    <p class="text" id="text_01">혼자 캠핑와서 맥주를 즐기며, 풍경에 취한다  </p>
+                </div>
+                <div class="modal_reply_input_div">
+                    <input class="modal_reply" id="modal_reply_01"></input>
+                </div>
+                <div class="modal_reply_div" id="modal_reply_div_01">
+                    <!-- 댓글 추가 -->
+                </div>
+            </div>        
+        </div>
+    </div>
+
+    <!-- 모달2 -->
+
+    <div id="modal_add_feed_02" class="modal_overlay">
+        <div class="modal_window">
+            <div class="modal_title">
+                <div class="modal_title_side"></div>
+                <div> 새 게시물 </div>
+                <div class="modal_title_side">
+                    <span id="close_modal_02" class="material-icons-outlined">
+                    x
+                    </span>
+                </div>
+            </div>
+            <div class="modal_body">
+                <div class="modal_body_img_div">
+                    <img class="modal_body_img" src="/img/한강 혼자 맥주 산책.jpeg">
+                </div>
+                <div class="modal_body_title_div">
+                    <p class="title" id="title_02"> 산책겸 맥주</p>
+                </div>
+                <div class="modal_body_text_div">
+                    <p class="text" id="text_02"> 맥주 한 캔 들고 한강 산책!</p>
+                </div>
+                <div class="modal_reply_input_div">
+                    <input class="modal_reply" id="modal_reply_02"></input>
+                </div>
+                <div class="modal_reply_div" id="modal_reply_div_02">
+
+                </div>
+            </div>        
+        </div>
+    </div>
+
+
+    <!-- 모달3 -->
+
+    <div id="modal_add_feed_03" class="modal_overlay">
+        <div class="modal_window">
+            <div class="modal_title">
+                <div class="modal_title_side"></div>
+                <div> 새 게시물 </div>
+                <div class="modal_title_side">
+                    <span id="close_modal_03" class="material-icons-outlined">
+                    x
+                    </span>
+                </div>
+            </div>
+            <div class="modal_body">
+                <div class="modal_body_img_div">
+                    <img class="modal_body_img" src="/img/치맥 보단 치소.jpg">
+                </div>
+                <div class="modal_body_title_div">
+                    <p class="title" id="title_03">퇴근 후 치소!!</p>
+                </div>
+                <div class="modal_body_text_div">
+                    <p class="text" id="text_03">난 치맥보다 치소가 좋더라~</p>
+                </div>
+                <div class="modal_reply_input_div">
+                    <input class="modal_reply" id="modal_reply_03"></input>
+                </div>
+                <div class="modal_reply_div" id="modal_reply_div_03">
+
+                </div>
+            </div>        
+        </div>
+    </div>
+
+    <!-- 모달4 -->
+
+    <div id="modal_add_feed_04" class="modal_overlay">
+        <div class="modal_window">
+            <div class="modal_title">
+                <div class="modal_title_side"></div>
+                <div> 새 게시물 </div>
+                <div class="modal_title_side">
+                    <span id="close_modal_04" class="material-icons-outlined">
+                    x
+                    </span>
+                </div>
+            </div>
+            <div class="modal_body">
+                <div class="modal_body_img_div">
+                    <img class="modal_body_img" src="/img/보타니스트 진.jpg">
+                </div>
+                <div class="modal_body_title_div">
+                    <p class="title" id="title_04">보타니스트 진</p>
+                </div>
+                <div class="modal_body_text_div">
+                    <p class="text" id="text_04">22가지에 지역에서 낭는 허브를 포인트를 살린 진 입니다!</p>
+                </div>
+                <div class="modal_reply_input_div">
+                    <input class="modal_reply" id="modal_reply_04"></input>
+                </div>
+                <div class="modal_reply_div" id="modal_reply_div_04">
+
+                </div>
+            </div>        
+        </div>
+    </div>
+
+    <!-- 모달5 -->
+
+    <div id="modal_add_feed_05" class="modal_overlay">
+        <div class="modal_window">
+            <div class="modal_title">
+                <div class="modal_title_side"></div>
+                <div> 새 게시물 </div>
+                <div class="modal_title_side">
+                    <span id="close_modal_05" class="material-icons-outlined">
+                    x
+                    </span>
+                </div>
+            </div>
+            <div class="modal_body">
+                <div class="modal_body_img_div">
+                    <img class="modal_body_img" src="/img/기안 8484.jpg">
+                </div>
+                <div class="modal_body_title_div">
+                    <p class="title" id="title_05">혼술의 대가</p>
+                </div>
+                <div class="modal_body_text_div">
+                    <p class="text" id="text_05"> 퇴근 후 내 모습이랑 비슷하네</p>
+                </div>
+                <div class="modal_reply_input_div">
+                    <input class="modal_reply" id="modal_reply_05"></input>
+                </div>
+                <div class="modal_reply_div" id="modal_reply_div_05">
+
+                </div>
+            </div>        
+        </div>
+    </div>
+
+    <!-- 모달6 -->
+
+    <div id="modal_add_feed_06" class="modal_overlay">
+        <div class="modal_window">
+            <div class="modal_title">
+                <div class="modal_title_side"></div>
+                <div> 새 게시물 </div>
+                <div class="modal_title_side">
+                    <span id="close_modal_06" class="material-icons-outlined">
+                    x
+                    </span>
+                </div>
+            </div>
+            <div class="modal_body">
+                <div class="modal_body_img_div">
+                    <img class="modal_body_img" src="/img/소주 안주 추천 회.jpeg">
+                </div>
+                <div class="modal_body_title_div">
+                    <p class="title" id="title_06">소주 안주 추천!!</p>
+                </div>
+                <div class="modal_body_text_div">
+                    <p class="text" id="text_06">회는 언제 먹어도 맛있어~ 반박해봐</p>
+                </div>
+                <div class="modal_reply_input_div">
+                    <input class="modal_reply" id="modal_reply_06"></input>
+                </div>
+                <div class="modal_reply_div" id="modal_reply_div_06">
+
+                </div>
+            </div>        
+        </div>
+    </div>
+
+    <!-- 모달7 -->
+
+    <div id="modal_add_feed_07" class="modal_overlay">
+        <div class="modal_window">
+            <div class="modal_title">
+                <div class="modal_title_side"></div>
+                <div> 새 게시물 </div>
+                <div class="modal_title_side">
+                    <span id="close_modal_07" class="material-icons-outlined">
+                    x
+                    </span>
+                </div>
+            </div>
+            <div class="modal_body">
+                <div class="modal_body_img_div">
+                    <img class="modal_body_img" src="/img/내 최애 술 아그와 밤.jfif">
+                </div>
+                <div class="modal_body_title_div">
+                    <p class="title" id="title_07">최애 술 소개!</p>
+                </div>
+                <div class="modal_body_text_div">
+                    <p class="text" id="text_07">아그와밤 전용 잔에 먹으면 더 꿀맛!</p>
+                </div>
+                <div class="modal_reply_input_div">
+                    <input class="modal_reply" id="modal_reply_07"></input>
+                </div>
+                <div class="modal_reply_div" id="modal_reply_div_07">
+
+                </div>
+            </div>        
+        </div>
+    </div>
+
+    <!-- 모달8 -->
+
+    <div id="modal_add_feed_08" class="modal_overlay">
+        <div class="modal_window">
+            <div class="modal_title">
+                <div class="modal_title_side"></div>
+                <div> 새 게시물 </div>
+                <div class="modal_title_side">
+                    <span id="close_modal_08" class="material-icons-outlined">
+                    x
+                    </span>
+                </div>
+            </div>
+            <div class="modal_body">
+                <div class="modal_body_img_div">
+                    <img class="modal_body_img" src="/img/화인 한잔.jpeg">
+                </div>
+                <div class="modal_body_title_div">
+                    <p class="title" id="title_08">와인 혼술 좋네요</p>
+                </div>
+                <div class="modal_body_text_div">
+                    <p class="text" id="text_08">여친이랑 마시고 싶은데 주말에나 볼 수 있어서.. 혼술 할랍니다 ㅋㅋ</p>
+                </div>
+                <div class="modal_reply_input_div">
+                    <input class="modal_reply" id="modal_reply_08"></input>
+                </div>
+                <div class="modal_reply_div" id="modal_reply_div_08">
+
+                </div>
+            </div>        
+        </div>
+    </div>
+
+    <!-- 로그인 창 구현 -->
+
+    <div id="modal_login_feed" class="modal_overlay">
+        <div id="login_modal_window" class="modal_window">
+            <div class="modal_title">
+                <div class="modal_title_side"></div>
+                <div> </div>
+                <div class="modal_title_side">
+                    <span id="close_login" class="material-icons-outlined">
+                    x
+                    </span>
+                </div>
+            </div>
+            <!--  -->
+            <div class="login-container">
+                <div class="logo-wrapper">
+                    <span class="logo-text">Sulleong</span>
+                </div>
+                <div class="input-wrapper">
+                    <div class="login-wrapper">
+                        <input class="login-input" type="text" placeholder="전화번호, 사용자 이름 또는 이메일">
+                    </div>
+                    <div class="login-wrapper">
+                        <input class="login-input" type="password" placeholder="비밀번호">
+                    </div>
+                    <div class="button-wrapper">
+                        <button class="login-button" disabled>로그인</button>
+                    </div>
+                </div>
+                <div class="findpass">
+                    <a>비밀번호를 잊으셨나요?</a>
+                </div>
+            </div>
+            <!--  -->
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+    <a
+     href="#"
+     title="위로"
+     style="display:scroll;position:fixed;bottom:15px;right:20px;"
+     onfocus='this.blur()'>
+     
+     <img 
+     src="/img/네온화살.png" background: translate="yes"
+     style="width:15px; height:25px; border-radius: 15px;"
+     />
+     </a>
+
+    <button id="add_text">+</button>
+
+    <script src="js/0628_01.js"></script>
+    <script>
+        $(function () {
+
+    let num = 0;
+    $(".pic1").click(function () {
+    if(num == 0) {
+        $(this).attr("src", "img/맥주.gif");
+        num = 1;
+    }else {
+        $(this).attr("src", "img/맥주 완.png");
+        num = 0;
+    }
+    });
+    });
+
+    $(function () {
+    let num = 0;
+    $(".pic2").click(function () {
+    if(num == 0) {
+        $(this).attr("src", "img/맥주.gif");
+        num = 1;
+    }else {
+        $(this).attr("src", "img/맥주 완.png");
+        num = 0;
+    }
+    });
+    })
+    $(function () {
+    let num = 0;
+    $(".pic3").click(function () {
+    if(num == 0) {
+        $(this).attr("src", "img/맥주.gif");
+        num = 1;
+    }else {
+        $(this).attr("src", "img/맥주 완.png");
+        num = 0;
+    }
+    });
+    })
+
+    $(function () {
+    let num = 0;
+    $(".pic4").click(function () {
+    if(num == 0) {
+        $(this).attr("src", "img/맥주.gif");
+        num = 1;
+    }else {
+        $(this).attr("src", "img/맥주 완.png");
+        num = 0;
+    }
+    });
+    })
+    $(function () {
+    let num = 0;
+    $(".pic5").click(function () {
+    if(num == 0) {
+        $(this).attr("src", "img/맥주.gif");
+        num = 1;
+    }else {
+        $(this).attr("src", "img/맥주 완.png");
+        num = 0;
+    }
+    });
+    })
+    $(function () {
+    let num = 0;
+    $(".pic6").click(function () {
+    if(num == 0) {
+        $(this).attr("src", "img/맥주.gif");
+        num = 1;
+    }else {
+        $(this).attr("src", "img/맥주 완.png");
+        num = 0;
+    }
+    });
+    })
+    $(function () {
+    let num = 0;
+    $(".pic7").click(function () {
+    if(num == 0) {
+        $(this).attr("src", "img/맥주.gif");
+        num = 1;
+    }else {
+        $(this).attr("src", "img/맥주 완.png");
+        num = 0;
+    }
+    });
+    })
+    $(function () {
+    let num = 0;
+    $(".pic8").click(function () {
+    if(num == 0) {
+        $(this).attr("src", "img/맥주.gif");
+        num = 1;
+    }else {
+        $(this).attr("src", "img/맥주 완.png");
+        num = 0;
+    }
+    });
+    })
+    </script>
+</body>
+</html>
